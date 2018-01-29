@@ -6,9 +6,12 @@
   </tag-input-dropdown>
 </tag-input>
 <h1>CHIPS WITH AUTOCOMPLETE DOESNOT ACCEPTS DATA OUTSIDE OF THE DROPDOWNLLIST</h1>
-<tag-input [ngModel]="['@item']"
-           [onlyFromAutocomplete]="true">
+<tag-input [ngModel]="['@item', 'preselected']"
+           [onlyFromAutocomplete]="true" (onTextChange)="onTextChange($event)"
+           (onAdd)="onItemAdded($event)"
+           [errorMessages]="errorMessages"
+           [validators]="validators">
   <tag-input-dropdown [showDropdownIfEmpty]="true"
-                      [autocompleteItems]="['iTem1', 'item2', 'item3']">
+                      [autocompleteItems]="fable">
   </tag-input-dropdown>
 </tag-input>
